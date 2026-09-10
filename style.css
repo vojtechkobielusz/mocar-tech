@@ -1651,3 +1651,35 @@ footer {
     }
 
 }
+
+@media (max-width: 700px) {
+
+    .marquee {
+        overflow: hidden;
+    }
+
+    .marquee-track {
+        width: max-content;
+
+        justify-content: flex-start;
+
+        gap: 26px;
+
+        padding: 18px 0;
+
+        animation: mobileMarquee 18s linear infinite;
+    }
+
+    @keyframes mobileMarquee {
+
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
+
+    }
+
+}
