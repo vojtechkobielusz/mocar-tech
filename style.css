@@ -551,7 +551,6 @@ textarea {
 
 .hero-bottom {
     position: absolute;
-
     z-index: 10;
 
     left: 0;
@@ -567,21 +566,32 @@ textarea {
     overflow: hidden;
 }
 
+.marquee {
+    width: 100%;
+    overflow: hidden;
+}
+
 .marquee-track {
     width: 100%;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 19px 20px;
+}
+
+.marquee-group {
     display: flex;
     align-items: center;
     justify-content: center;
 
     gap: 28px;
 
-    padding: 19px 20px;
-
-    animation: none;
+    white-space: nowrap;
 }
 
-.marquee-track span {
+.marquee-group span {
     color: #9a9a9a;
 
     font-family: "Oswald", sans-serif;
@@ -591,10 +601,16 @@ textarea {
     letter-spacing: 1.2px;
 }
 
-.marquee-track i {
+.marquee-group i {
     color: var(--red);
-
     font-style: normal;
+}
+
+
+/* druhá kopie je na PC schovaná */
+
+.marquee-copy {
+    display: none;
 }
 
 @keyframes marquee {
@@ -1668,6 +1684,45 @@ footer {
         padding: 18px 0;
 
         animation: mobileMarquee 18s linear infinite;
+    }
+
+    @keyframes mobileMarquee {
+
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
+
+    }
+
+}   
+@media (max-width: 700px) {
+
+    .marquee-track {
+        width: max-content;
+
+        justify-content: flex-start;
+
+        gap: 28px;
+
+        padding: 18px 0;
+
+        animation: mobileMarquee 18s linear infinite;
+    }
+
+    .marquee-group {
+        flex-shrink: 0;
+
+        gap: 26px;
+
+        padding-right: 28px;
+    }
+
+    .marquee-copy {
+        display: flex;
     }
 
     @keyframes mobileMarquee {
